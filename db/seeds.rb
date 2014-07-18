@@ -4,4 +4,8 @@ character_names = [
   "Springfield Elementary", "Springfield", "Seymour Skinner", "Nelson Muntz"
 ]
 
-character_names.each { |name| Character.find_or_create_by(name: name) }
+character_names.each do |name|
+  character = Character.find_or_create_by(name: name)
+  image_url = "#{character.name.underscore.gsub(" ", "_")}.png"
+  character.update_attributes(image_url: image_url)
+end
