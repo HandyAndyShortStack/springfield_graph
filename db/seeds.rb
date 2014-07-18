@@ -9,3 +9,12 @@ character_names.each do |name|
   image_url = "#{character.name.underscore.gsub(" ", "_")}.png"
   character.update_attributes(image_url: image_url)
 end
+
+springfield = Character.find_by(name: springfield)
+Character.all.each do |character|
+  next if ["Troy McClure", "Springfield", "Springfield Elementary"].include? name
+  character.connections.create({
+    connectee_id: springfield.id,
+    description: "resides in"
+  })
+end

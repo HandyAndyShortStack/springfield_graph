@@ -1,0 +1,103 @@
+Connections:
+
+Abe Simpson
+
+1. Grandfather to Lisa Simpson
+
+2. Father to Homer Simpson
+
+3. Fan of Troy McClure
+
+4. Friend of Seymour Skinner
+
+5. Dislikes Krusty the Clown
+
+6. Resides in Springfield
+
+Ned Flanders
+
+1. Resides in Springfield
+
+2. Neighbors with Lisa/Homer Simpson
+
+3. Prays for Everyone
+
+Homer Simpson
+
+1. Resides in Springfield
+
+2. Father to Lisa Simpson
+
+3. Son of Abe Simpson
+
+4. Neighbor to Ned Flanders
+
+5. Friends with Ned Flanders, Otto Mann, Chief Wiggum
+
+Krusty the Clown
+
+1. Resides in Springfield
+
+2. Fan of Troy McClure
+
+3. Friends with Troy McClure
+
+Lisa Simpson
+
+1. Resides in Springfield
+
+2. Attends Springfield Elementary
+
+3. Daughter of Marge/Homer Simpson
+
+4. Granddaughter of Abe Simpson
+
+5. Fan of Krusty the Clown
+
+6. Friends with Otto Mann
+
+7. Neighbor to Ned Flanders
+
+8. Likes Nelson Muntz
+
+Nelson Muntz
+
+1. Resides in Springfield
+
+2. Attends Springfield Elementary
+
+3. Fan of Krusty the Clown
+
+Otto Mann
+
+1. Resides in Springfield
+
+2. Works at Springfield Elementary
+
+3. Works with Seymour Skinner
+
+4. Fan of Krusty the Clown
+
+5. Drives Lisa Simpson, Nelson Muntz
+
+Seymour Skinner
+
+1. Resides in Springfield
+
+2. Works at Springfield Elementary
+
+3. Works with Otto Mann
+
+4. Enemies with Nelson Muntz
+
+Troy McClure
+
+1. Friends with Krusty the Clown
+
+Chief Wiggum
+
+1. Resides in Springfield
+
+2. Friends with Homer Simpson, Otto Mann
+
+3. Fan of Krusty the Clown
