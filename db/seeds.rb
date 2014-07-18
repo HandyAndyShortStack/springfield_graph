@@ -10,11 +10,20 @@ character_names.each do |name|
   character.update_attributes(image_url: image_url)
 end
 
-springfield = Character.find_by(name: springfield)
+springfield = Character.find_by(name: "Springfield")
 Character.all.each do |character|
   next if ["Troy McClure", "Springfield", "Springfield Elementary"].include? name
-  character.connections.create({
+  character.connections.find_or_create_by({
     connectee_id: springfield.id,
     description: "resides in"
+  })
+end
+
+ned = Character.find_by(name: "Ned Flanders")
+Character.all.each do |character|
+  next if character.name == ned.name
+  ned.connections.find_or_create_by({
+    connectee_id: character.id
+    description: "prays for"
   })
 end

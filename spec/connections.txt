@@ -12,19 +12,11 @@ Abe Simpson
 
 5. Dislikes Krusty the Clown
 
-6. Resides in Springfield
-
 Ned Flanders
-
-1. Resides in Springfield
 
 2. Neighbors with Lisa/Homer Simpson
 
-3. Prays for Everyone
-
 Homer Simpson
-
-1. Resides in Springfield
 
 2. Father to Lisa Simpson
 
@@ -36,15 +28,11 @@ Homer Simpson
 
 Krusty the Clown
 
-1. Resides in Springfield
-
 2. Fan of Troy McClure
 
 3. Friends with Troy McClure
 
 Lisa Simpson
-
-1. Resides in Springfield
 
 2. Attends Springfield Elementary
 
@@ -62,15 +50,11 @@ Lisa Simpson
 
 Nelson Muntz
 
-1. Resides in Springfield
-
 2. Attends Springfield Elementary
 
 3. Fan of Krusty the Clown
 
 Otto Mann
-
-1. Resides in Springfield
 
 2. Works at Springfield Elementary
 
@@ -81,8 +65,6 @@ Otto Mann
 5. Drives Lisa Simpson, Nelson Muntz
 
 Seymour Skinner
-
-1. Resides in Springfield
 
 2. Works at Springfield Elementary
 
@@ -95,8 +77,6 @@ Troy McClure
 1. Friends with Krusty the Clown
 
 Chief Wiggum
-
-1. Resides in Springfield
 
 2. Friends with Homer Simpson, Otto Mann
 
