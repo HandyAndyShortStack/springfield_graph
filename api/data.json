@@ -1,0 +1,42 @@
+{
+  "characters": [
+    {
+      "name": "Abe Simpson",
+      "connections": [
+        {
+          "target": "Lisa Simpson",
+          "description": "grandfather"
+        },
+        {
+          "target": "Homer Simpson",
+          "description": "father"
+        },
+        {
+          "target": "Troy McClure",
+          "description": "fan"
+        },
+        {
+          "target": "Seymour Skinner",
+          "description": "friend"
+        },
+        {
+          "target": "Krusty the Clown",
+          "description": "dislike"
+        },
+        {
+          "target": "Springfield",
+          "description": "resident"
+        }
+      ]
+    },
+    {
+      "name": "Ned Flanders",
+      "connections": [
+        {
+          "target": "Springfield",
+          "description": "resident"
+        }
+      ]
+    }
+  ]
+}
