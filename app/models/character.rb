@@ -7,7 +7,7 @@ class Character < ActiveRecord::Base
   end
 
   def underscore_name
-    name.to_s.underscore.gsub " ", "_"
+    name.to_s.downcase.gsub " ", "_"
   end
 
   def image_url
