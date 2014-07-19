@@ -54,3 +54,12 @@ otto_mann.connect_to(springfield_elementary, "works at")
     .connect_to(krusty_the_clown, "is a fan of")
     .connect_to(lisa_simpson, "drives")
     .connect_to(nelson_muntz, "drives")
+
+seymour_skinner.connect_to(springfield_elementary, "works at")
+    .connect_to(otto_mann, "works with")
+    .connect_to(nelson_muntz, "is enemies with")
+
+troy_mcclure.connect_to(krusty_the_clown, "is friends with")
+
+chief_wiggum.connect_to(homer_simpson, "is friends with")
+    .connect_to("krusty_the_clown", "is a fan of")
