@@ -17,3 +17,9 @@ Character.all.each do |character|
     character.connect_to(springfield, "resides in")
   end
 end
+
+abe_simpson.connect_to(lisa_simpson, "is a grandfather to")
+    .connect_to(homer_simpson, "is a father to")
+    .connect_to(troy_mcclure, "is a fan of")
+    .connect_to(seymour_skinner, "is a friend of")
+    .connect_to(krusty_the_clown, "dislikes")
