@@ -26,3 +26,5 @@ Character.all.each do |character|
     description: "prays for"
   })
 end
+
+abe = Character.find_by(name: "Abe Simpson")
