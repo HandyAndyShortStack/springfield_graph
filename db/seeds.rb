@@ -6,22 +6,14 @@ character_names = [
 
 character_names.each do |name|
   character = Character.find_or_create_by(name: name)
-  image_url = "#{character.name.underscore.gsub(" ", "_")}.png"
-  character.update_attributes(image_url: image_url)
+  define_method character.underscore_name do
+    character
+  end
 end
 
-springfield = Character.find_by(name: "Springfield")
 Character.all.each do |character|
-  next if ["Troy McClure", "Springfield", "Springfield Elementary"].include? character.name
-  character.connect_to(springfield, "resides in")
+  ned_flanders.connect_to(character, "prays for")
+  unless [troy_mcclure, springfield, springfield_elementary].include? character
+    character.connect_to(springfield, "resides in")
+  end
 end
-
-ned = Character.find_by(name: "Ned Flanders")
-Character.all.each do |character|
-  ned.connections.find_or_create_by({
-    connectee_id: character.id
-    description: "prays for"
-  })
-end
-
-abe = Character.find_by(name: "Abe Simpson")
