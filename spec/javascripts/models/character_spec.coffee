@@ -1,4 +1,4 @@
-Backbone = require '../../../vendor/assets/javascripts/backbone'
+global.Backbone or= require 'backbone'
 Character = require '../../../app/assets/javascripts/models/character'
 
 describe "Character", ->
@@ -9,4 +9,4 @@ describe "Character", ->
       name: 'Sample Name'
 
   it 'has a name', ->
-    expect(character.name).toEqual('Sample Name')
+    expect(character.get('name')).toEqual('Sample Name')

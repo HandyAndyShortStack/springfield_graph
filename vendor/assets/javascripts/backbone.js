@@ -17,7 +17,7 @@
 
   // Next for Node.js or CommonJS. jQuery may not be needed as a module.
   } else if (typeof exports !== 'undefined') {
-    var _ = require(process.cwd() + '/vendor/assets/javascripts/underscore');
+    var _ = require('underscore');
     factory(root, exports, _);
 
   // Finally, as a browser global.
