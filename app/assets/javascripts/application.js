@@ -5,4 +5,6 @@
 //= require backbone
 //= require main
 //= require app
+//= require_tree ./models
+//= requree_tree ./collections
 //= require_tree .
