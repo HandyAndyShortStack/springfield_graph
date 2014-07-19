@@ -21,7 +21,6 @@ end
 
 ned = Character.find_by(name: "Ned Flanders")
 Character.all.each do |character|
-  next if character.name == ned.name
   ned.connections.find_or_create_by({
     connectee_id: character.id
     description: "prays for"
