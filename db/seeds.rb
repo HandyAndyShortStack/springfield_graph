@@ -23,3 +23,13 @@ abe_simpson.connect_to(lisa_simpson, "is a grandfather to")
     .connect_to(troy_mcclure, "is a fan of")
     .connect_to(seymour_skinner, "is a friend of")
     .connect_to(krusty_the_clown, "dislikes")
+
+ned_flanders.connect_to(lisa_simpson, "is neighbors with")
+    .connect_to(homer_simpson, "is neighbors with")
+
+homer_simpson.connect_to(lisa_simpson, "is a father to")
+    .connect_to(abe_simpson, "is a son of")
+    .connect_to(ned_flanders, "is a neighbor to")
+    .connect_to(ned_flanders, "is friends with")
+    .connect_to(otto_mann, "is friends with")
+    .connect_to(chief_wiggum, "is friends with")

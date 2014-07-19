@@ -1,31 +1,5 @@
 Connections:
 
-Abe Simpson
-
-1. Grandfather to Lisa Simpson
-
-2. Father to Homer Simpson
-
-3. Fan of Troy McClure
-
-4. Friend of Seymour Skinner
-
-5. Dislikes Krusty the Clown
-
-Ned Flanders
-
-2. Neighbors with Lisa/Homer Simpson
-
-Homer Simpson
-
-2. Father to Lisa Simpson
-
-3. Son of Abe Simpson
-
-4. Neighbor to Ned Flanders
-
-5. Friends with Ned Flanders, Otto Mann, Chief Wiggum
-
 Krusty the Clown
 
 2. Fan of Troy McClure
