@@ -1,3 +1,5 @@
+_ = require '../../../vendor/assets/javascripts/underscore'
+Backbone = require '../../../vendor/assets/javascripts/backbone'
 Character = require '../../../app/assets/javascripts/models/character'
 
 describe "Character", ->
