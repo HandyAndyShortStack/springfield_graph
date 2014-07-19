@@ -2,15 +2,11 @@ require "rails_helper"
 
 describe Character do
 
-  let(:character) { Character.create }
+  let(:character) { Character.create(name: "Sample Name") }
 
   describe "#connections" do
-
-    before :each do
-      character.connections.create(connectee_id: 1, description: "is connected to")
-    end
-
     it "provides a relation consisting of outgoing connections" do
+      character.connections.create(connectee_id: 1, description: "is connected to")
       expect(character.connections.length).to eq(1)
     end
   end
@@ -39,10 +35,14 @@ describe Character do
   end
 
   describe "#underscore_name" do
-
     it "returns the characters name lower case with underscores" do
-      character.name = "Sample Name"
       expect(character.underscore_name).to eq("sample_name")
+    end
+  end
+
+  describe "#image_url" do
+    it "returns a valid properly formed image url" do
+      expect(character.image_url).to eq("sample_name.png")
     end
   end
 end

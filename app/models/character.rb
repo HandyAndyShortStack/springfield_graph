@@ -9,4 +9,8 @@ class Character < ActiveRecord::Base
   def underscore_name
     name.to_s.underscore.gsub " ", "_"
   end
+
+  def image_url
+    "#{underscore_name}.png"
+  end
 end
