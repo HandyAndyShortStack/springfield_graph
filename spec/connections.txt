@@ -1,21 +1,5 @@
 Connections:
 
-Nelson Muntz
-
-2. Attends Springfield Elementary
-
-3. Fan of Krusty the Clown
-
-Otto Mann
-
-2. Works at Springfield Elementary
-
-3. Works with Seymour Skinner
-
-4. Fan of Krusty the Clown
-
-5. Drives Lisa Simpson, Nelson Muntz
-
 Seymour Skinner
 
 2. Works at Springfield Elementary
