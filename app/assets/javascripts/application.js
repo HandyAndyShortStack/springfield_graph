@@ -3,6 +3,7 @@
 //= require turbolinks
 //= require underscore
 //= require backbone
+//= requrew d3
 //= require main
 //= require app
 //= require_tree ./models
