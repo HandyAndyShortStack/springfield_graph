@@ -1,27 +1,5 @@
 Connections:
 
-Krusty the Clown
-
-2. Fan of Troy McClure
-
-3. Friends with Troy McClure
-
-Lisa Simpson
-
-2. Attends Springfield Elementary
-
-3. Daughter of Marge/Homer Simpson
-
-4. Granddaughter of Abe Simpson
-
-5. Fan of Krusty the Clown
-
-6. Friends with Otto Mann
-
-7. Neighbor to Ned Flanders
-
-8. Likes Nelson Muntz
-
 Nelson Muntz
 
 2. Attends Springfield Elementary
