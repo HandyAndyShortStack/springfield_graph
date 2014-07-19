@@ -1,3 +1,4 @@
+global.SM or= {}
 global.Backbone or= require 'backbone'
 Character = require '../../../app/assets/javascripts/models/character'
 

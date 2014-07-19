@@ -1,3 +1,3 @@
-class Character extends Backbone.Model
+class SM.Character extends Backbone.Model
 
-module?.exports = Character
+module?.exports = SM.Character
