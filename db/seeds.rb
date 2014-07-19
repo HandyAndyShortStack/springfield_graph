@@ -12,11 +12,8 @@ end
 
 springfield = Character.find_by(name: "Springfield")
 Character.all.each do |character|
-  next if ["Troy McClure", "Springfield", "Springfield Elementary"].include? name
-  character.connections.find_or_create_by({
-    connectee_id: springfield.id,
-    description: "resides in"
-  })
+  next if ["Troy McClure", "Springfield", "Springfield Elementary"].include? character.name
+  character.connect_to(springfield, "resides in")
 end
 
 ned = Character.find_by(name: "Ned Flanders")
