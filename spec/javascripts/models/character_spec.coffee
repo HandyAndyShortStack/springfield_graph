@@ -6,6 +6,7 @@ describe "Character", ->
   character = null
 
   beforeEach ->
+    spyOn SM, 'ConnectionsCollection'
     character = new Character
       name: 'Sample Name'
 
