@@ -5,4 +5,8 @@ class Character < ActiveRecord::Base
     connections.find_or_create_by(connectee_id: connectee.id, description: description)
     self
   end
+
+  def underscore_name
+    name.to_s.underscore.gsub " ", "_"
+  end
 end

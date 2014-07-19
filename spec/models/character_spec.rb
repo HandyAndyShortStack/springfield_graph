@@ -37,4 +37,12 @@ describe Character do
       expect(character.connections.length).to eq(1)
     end
   end
+
+  describe "#underscore_name" do
+
+    it "returns the characters name lower case with underscores" do
+      character.name = "Sample Name"
+      expect(character.underscore_name).to eq("sample_name")
+    end
+  end
 end
