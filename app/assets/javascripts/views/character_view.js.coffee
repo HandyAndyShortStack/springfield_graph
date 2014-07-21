@@ -6,14 +6,17 @@ class SM.CharacterView extends Backbone.View
       {
         angle: 0
         characters: graphData.zeroDegreeCharacters
+        connections: graphData.zeroDegreeConnections
       }
       {
         angle: 105
         characters: graphData.firstDegreeCharacters
+        connections: graphData.firstDegreeConnections
       }
       {
         angle: 210
         characters: graphData.secondDegreeCharacters
+        connections: graphData.secondDegreeConnections
       }
       {
         angle: 315
@@ -64,8 +67,9 @@ class SM.CharacterView extends Backbone.View
         .attr 'stroke', 'black'
         .attr 'stroke-width', '3'
 
-    # draw nodes
     for axis, index in axesData
+      
+      # draw nodes
       nodes = svg.selectAll ".axis-#{index}-nodes"
           .data axis.characters.models
           .enter()
