@@ -7,4 +7,4 @@ class SM.CharactersCollection extends Backbone.Collection
     for character in @models
       for connection in character.connections.models
         connections.push connection
-    connections
+    new SM.ConnectionsCollection(connections)

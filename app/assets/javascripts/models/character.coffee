@@ -7,6 +7,7 @@ class SM.Character extends Backbone.Model
     @view = new SM.CharacterView(model: this)
 
   graphData: ->
+    zeroDegreeCharacters = new SM.CharactersCollection(this)
     firstDegreeCharacters = new SM.CharactersCollection
     secondDegreeConnections = new SM.ConnectionsCollection
     secondDegreeCharacters = new SM.CharactersCollection
@@ -14,9 +15,9 @@ class SM.Character extends Backbone.Model
     thirdDegreeCharacters = new SM.CharactersCollection
 
     firstDegreeCharacters.add @connections.targets()
-    secondDegreeConnections.add firstDegreeCharacters.connections()
+    secondDegreeConnections.add firstDegreeCharacters.connections().models
     secondDegreeCharacters.add secondDegreeConnections.targets()
-    thirdDegreeConnections.add secondDegreeCharacters.connections()
+    thirdDegreeConnections.add secondDegreeCharacters.connections().models
     thirdDegreeCharacters.add thirdDegreeConnections.targets()
 
     thirdDegreeCharacters.remove secondDegreeCharacters.models
@@ -29,8 +30,11 @@ class SM.Character extends Backbone.Model
     firstDegreeCharacters.remove this
 
     {
-      zeroDegreeCharacters: new SM.CharactersCollection(this)
+      zeroDegreeCharacters: zeroDegreeCharacters
       firstDegreeCharacters: firstDegreeCharacters
       secondDegreeCharacters: secondDegreeCharacters
       thirdDegreeCharacters: thirdDegreeCharacters
+      zeroDegreeConnections: zeroDegreeCharacters.connections().targeting(firstDegreeCharacters)
+      firstDegreeConnections: firstDegreeCharacters.connections().targeting(secondDegreeCharacters)
+      secondDegreeConnections: secondDegreeCharacters.connections().targeting(thirdDegreeCharacters)
     }

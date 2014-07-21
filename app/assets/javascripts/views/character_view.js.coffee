@@ -31,6 +31,15 @@ class SM.CharacterView extends Backbone.View
     nodeSpacing = ((0.5 * w) - innerRadius) / 11
     nodeSide = nodeSpacing * 0.8
 
+    polar = (angle, radius) ->
+      angle = angle - 90
+      x = radius * Math.cos(degreesToRadians(angle))
+      y = radius * Math.sin(degreesToRadians(angle))
+      {x: x, y: y}
+
+    degreesToRadians = (degrees) ->
+      degrees * (Math.PI / 180)
+
     $('svg').remove()
     svg = d3.select 'body'
         .append 'svg'
@@ -69,28 +78,3 @@ class SM.CharacterView extends Backbone.View
             polar(axis.angle, innerRadius + (nodeSpacing * (index + 0.5))).y - (nodeSide / 2)
           .attr 'width', nodeSide
           .attr 'height', nodeSide
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-window.polar = (angle, radius) ->
-  angle = angle - 90
-  x = radius * Math.cos(degreesToRadians(angle))
-  y = radius * Math.sin(degreesToRadians(angle))
-  {x: x, y: y}
-
-window.degreesToRadians = (degrees) ->
-  degrees * (Math.PI / 180)  
