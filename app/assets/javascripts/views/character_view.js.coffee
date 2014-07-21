@@ -27,9 +27,9 @@ class SM.CharacterView extends Backbone.View
       x: w / 2
       y: h / 2
 
-    innerRadius = (30 / 500) * h
-    nodeSpacing = (50 / 500) * h
-    nodeSide = nodeSpacing * 0.7
+    innerRadius = 0.05 * h
+    nodeSpacing = ((0.5 * w) - innerRadius) / 11
+    nodeSide = nodeSpacing * 0.8
 
     $('svg').remove()
     svg = d3.select 'body'
@@ -64,9 +64,9 @@ class SM.CharacterView extends Backbone.View
           .attr 'xlink:href', (data) ->
             data.get 'image_url'
           .attr 'x', (data, index) ->
-            polar(axis.angle, innerRadius + (nodeSpacing * index)).x - (nodeSide / 2)
+            polar(axis.angle, innerRadius + (nodeSpacing * (index + 0.5))).x - (nodeSide / 2)
           .attr 'y', (data, index) ->
-            polar(axis.angle, innerRadius + (nodeSpacing * index)).y - (nodeSide / 2)
+            polar(axis.angle, innerRadius + (nodeSpacing * (index + 0.5))).y - (nodeSide / 2)
           .attr 'width', nodeSide
           .attr 'height', nodeSide
 
