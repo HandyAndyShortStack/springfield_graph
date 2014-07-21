@@ -5,7 +5,7 @@ class SM.CharacterView extends Backbone.View
     axesData = [
       {
         angle: 0
-        characters: [@model]
+        characters: graphData.zeroDegreeCharacters
       }
       {
         angle: 105
@@ -29,6 +29,7 @@ class SM.CharacterView extends Backbone.View
 
     innerRadius = (30 / 500) * h
     nodeSpacing = (10 / 500) * h
+    nodeSide = nodeSpacing * 0.7
 
     $('svg').remove()
     svg = d3.select 'body'
@@ -57,9 +58,17 @@ class SM.CharacterView extends Backbone.View
     # draw nodes
     for axis, index in axesData
       nodes = svg.selectAll ".axis-#{index}-nodes"
-          .data axis
+          .data axis.characters.models
           .enter()
         .append 'image'
+          .attr 'xlink:href', (data) ->
+            data.get 'image_url'
+          .attr 'x', (data, index) ->
+            polar(axis.angle, innerRadius + (nodeSpacing * index)).x - (nodeSide / 2)
+          .attr 'y', (data, index) ->
+            polar(axis.angle, innerRadius + (nodeSpacing * index)).y - (nodeSide / 2)
+          .attr 'width', nodeSide
+          .attr 'height', nodeSide
 
 
 

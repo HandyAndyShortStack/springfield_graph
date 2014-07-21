@@ -15,6 +15,6 @@ class Character < ActiveRecord::Base
   end
 
   def image_url
-    "#{underscore_name}.png"
+    "/assets/#{underscore_name}.png"
   end
 end

@@ -29,6 +29,7 @@ class SM.Character extends Backbone.Model
     firstDegreeCharacters.remove this
 
     {
+      zeroDegreeCharacters: new SM.CharactersCollection(this)
       firstDegreeCharacters: firstDegreeCharacters
       secondDegreeCharacters: secondDegreeCharacters
       thirdDegreeCharacters: thirdDegreeCharacters
