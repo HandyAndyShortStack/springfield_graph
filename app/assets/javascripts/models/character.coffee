@@ -3,7 +3,8 @@ class SM.Character extends Backbone.Model
   initialize: ->
     @connections = new SM.ConnectionsCollection
     @connections.url = "#{@url()}/connections"
-    @connections.fetch()
+    @connections.fetch() 
+    @view = new SM.CharacterView(model: this)
 
   graphData: ->
     firstDegreeCharacters = new SM.CharactersCollection
