@@ -28,7 +28,7 @@ class SM.CharacterView extends Backbone.View
       y: h / 2
 
     innerRadius = (30 / 500) * h
-    nodeSpacing = (10 / 500) * h
+    nodeSpacing = (50 / 500) * h
     nodeSide = nodeSpacing * 0.7
 
     $('svg').remove()
