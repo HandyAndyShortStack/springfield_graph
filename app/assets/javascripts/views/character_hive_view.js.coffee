@@ -82,25 +82,38 @@ class SM.CharacterHiveView extends Backbone.View
       nextAxis = axesData[index + 1]
            
       # draw connections
-      conections = svg.selectAll ".axis-#{index}-connections"
+      connections = svg.selectAll ".axis-#{index}-connections"
           .data axis.connections.models
           .enter()
-        .append 'path'
-          .attr 'stroke', (data) ->
-            colorScale axis.characters.indexOf(data.source())
-          .attr 'stroke-width', '2'
-          .attr 'fill', 'none'
-          .attr 'd', (data) ->
-            sourceIndex = axis.characters.indexOf(data.source())
-            targetIndex = nextAxis.characters.indexOf(data.target())
-            source = nodeCenter(axis.angle, sourceIndex)
-            target = nodeCenter(nextAxis.angle, targetIndex)
-            rx = source.x - target.x
-            ry = source.y - target.y
-            "M #{source.x} #{source.y} " +
-            "A 1 1 " +
-            "0 0 1 " +
-            "#{target.x} #{target.y}"
+          .append 'g'
+      for i in [1, 2]
+        connections.append 'path'
+            .classed "connection-#{i}", true
+            .attr 'stroke', (data) ->
+              colorScale axis.characters.indexOf(data.source())
+            .attr 'stroke-width', '2'
+            .attr 'fill', 'none'
+            .attr 'd', (data) ->
+              sourceIndex = axis.characters.indexOf(data.source())
+              targetIndex = nextAxis.characters.indexOf(data.target())
+              source = nodeCenter(axis.angle, sourceIndex)
+              target = nodeCenter(nextAxis.angle, targetIndex)
+              "M #{source.x} #{source.y} " +
+              "A 1 1 " +
+              "0 0 1 " +
+              "#{target.x} #{target.y}"
+            .on 'mouseover', (data) ->
+              data.trigger 'quickView'
+            .on 'mouseout', (data) ->
+              app.trigger 'clearQuickView'
+      d3.selectAll '.connection-2'
+          .attr 'stroke', 'black'
+          .attr 'stroke-width', 4.5
+          .attr 'stroke-opacity', 0
+          .on 'mouseover', ->
+            d3.select(this).attr 'stroke-opacity', 1
+          .on 'mouseout', ->
+            d3.select(this).attr 'stroke-opacity', 0
 
       # draw nodes
       nodes = svg.selectAll ".axis-#{index}-nodes"
