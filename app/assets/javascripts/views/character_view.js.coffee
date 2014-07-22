@@ -25,6 +25,7 @@ class SM.CharacterView extends Backbone.View
       }
     ]
 
+
     h = 500
     w = h
     center =
@@ -53,10 +54,10 @@ class SM.CharacterView extends Backbone.View
     $('svg').remove()
     svg = d3.select 'body'
         .append 'svg'
-        .attr 'height', h
-        .attr 'width', w
+        .attr 'height', h * 0.7
+        .attr 'width', w * 0.8
       .append 'g'
-        .attr 'transform', "translate(#{w / 2},#{h / 2})"
+        .attr 'transform', "translate(#{w * 0.3},#{h * 0.3})"
 
     # draw axes
     axes = svg.selectAll '.axes'
@@ -93,8 +94,8 @@ class SM.CharacterView extends Backbone.View
             rx = source.x - target.x
             ry = source.y - target.y
             "M #{source.x} #{source.y} " +
-            "A #{rx} #{ry} " +
-            "#{axis.angle} 0 1 " +
+            "A 1 1 " +
+            "0 0 1 " +
             "#{target.x} #{target.y}"
 
       # draw nodes
@@ -110,3 +111,6 @@ class SM.CharacterView extends Backbone.View
             nodeCenter(axis.angle, index).y - (nodeSide / 2)
           .attr 'width', nodeSide
           .attr 'height', nodeSide
+
+window.render = (number) ->
+  app.characters.get(number).view.render()

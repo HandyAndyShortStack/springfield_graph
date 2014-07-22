@@ -8,3 +8,7 @@ class SM.CharactersCollection extends Backbone.Collection
       for connection in character.connections.models
         connections.push connection
     new SM.ConnectionsCollection(connections)
+
+  comparator: (character) ->
+    if character.connections then character.connections.length else 0
+
