@@ -1,6 +1,7 @@
 class SM.CharacterHiveView extends Backbone.View
 
   render: ->
+    $('#hive-name').html @model.get('name')
     graphData = @model.graphData()
     axesData = [
       {
