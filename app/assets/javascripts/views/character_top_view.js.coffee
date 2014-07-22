@@ -2,6 +2,8 @@ class SM.CharacterTopView extends Backbone.View
 
   initialize: ->
     @template = $('#character-top-view').html()
+    @listenTo @model, 'select', =>
+      @show()
 
   render: ->
     data = _.clone(@model.attributes)

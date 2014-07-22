@@ -1,26 +1,34 @@
 class SM.CharacterHiveView extends Backbone.View
 
+  initialize: ->
+    @listenTo @model, 'select', =>
+      @render()
+
   render: ->
     $('#hive-name').html @model.get('name')
     graphData = @model.graphData()
     axesData = [
       {
         angle: 0
+        name: 'zero'
         characters: graphData.zeroDegreeCharacters
         connections: graphData.zeroDegreeConnections
       }
       {
         angle: 105
+        name: 'first'
         characters: graphData.firstDegreeCharacters
         connections: graphData.firstDegreeConnections
       }
       {
         angle: 210
+        name: 'second'
         characters: graphData.secondDegreeCharacters
         connections: graphData.secondDegreeConnections
       }
       {
         angle: 315
+        name: 'third'
         characters: graphData.thirdDegreeCharacters
         connections: graphData.thirdDegreeConnections
       }
@@ -120,8 +128,10 @@ class SM.CharacterHiveView extends Backbone.View
           .data axis.characters.models
           .enter()
         .append 'g'
+          .attr 'data-axisName', axis.name
           .on 'mouseover', (data) ->
-            data.trigger 'quickView'
+            axisName = d3.select(this).attr 'data-axisName'
+            data.trigger 'quickView', axisName
             d3.select(this).select('.node-border').attr 'fill', 'orange'
           .on 'mouseout', ->
             app.trigger 'clearQuickView'

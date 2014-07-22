@@ -7,10 +7,7 @@ class SM.Character extends Backbone.Model
     @hiveView = new SM.CharacterHiveView(model: this)
     @listView = new SM.CharacterListView(model: this)
     @topView = new SM.CharacterTopView(model: this)
-
-    @listenTo this, 'select', =>
-      @topView.show()
-      @hiveView.render()
+    @quickView = new SM.CharacterQuickView(model: this)
 
   graphData: ->
     zeroDegreeCharacters = new SM.CharactersCollection(this)

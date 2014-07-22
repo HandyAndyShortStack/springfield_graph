@@ -19,16 +19,7 @@
         </div>
 
         <div class="col-md-5">
-          <div id="quick-info">
-            <div class="row">
-              <div class="col-md-4">
-                <img src="/assets/krusty_the_clown.png">
-              </div>
-              <div class="col-md-8">
-                <h4>Krusty the Clown</h4>
-              </div>
-            </div>
-          </div>
+          <div id="quick-info"></div>
         </div>
       </div>
     </div>
@@ -71,4 +62,16 @@
   </div>
 </script>
 
-<script id="character-hive-view" type="text/template"></script>
+<script id="character-quick-view" type="text/template">
+  <div class="row">
+    <div class="col-md-4">
+      <img src="{{= image_url }}">
+    </div>
+    <div class="col-md-8">
+      <h4>{{= name }}</h4>
+      {{ if (axisName) { }}
+        <p>is a {{= axisName }} degree connection</p>
+      {{ } }}
+    </div>
+  </div>
+</script>
