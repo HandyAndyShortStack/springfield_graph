@@ -10,26 +10,8 @@
     </div>
 
     <div class="col-md-9">
-      <div class="row info-section">
-
-        <div id="selected-character">
-          <div class="col-md-3">
-            <img src="/assets/otto_mann.png" />
-          </div>
-        </div>
-
-        <div class="col-md-9">
-          <h3>Otto Mann</h3>
-          <ul>
-            <li>3 first degree connections</li>
-            <li>7 second degree connections</li>
-            <li>0 third degree connections</li>
-          </ul>
-        </div>
-      </div>
-
+      <div id="selected-character" class="row"></div>
       <hr />
-
       <div class="row">
         <div class="col-md-6">
           <h4>Otto's Connections</h4>
@@ -63,3 +45,29 @@
     </div>
   </div>
 </script>
+
+<script id="character-top-view" type="text/template">
+  <div class="col-md-3">
+    <img src="{{= image_url }}" />
+  </div>
+
+  <div class="col-md-9">
+    <h3>{{= name }}</h3>
+    <ul>
+      <li>
+        {{= firsts }}
+        first degree connection{{ if (firsts !== 1) { }}s{{ } }}
+      </li>
+      <li>
+        {{= seconds }}
+        second degree connection{{ if (seconds !== 1) { }}s{{ } }}
+      </li>
+      <li>
+        {{= thirds }}
+        third degree connection{{ if (thirds !== 1) { }}s{{ } }}
+      </li>
+    </ul>
+  </div>
+</script>
+
+<script id="character-hive-view" type="text/template"></script>

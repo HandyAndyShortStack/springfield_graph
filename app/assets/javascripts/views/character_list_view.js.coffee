@@ -6,3 +6,5 @@ class SM.CharacterListView extends Backbone.View
 
   render: ->
     @$el.html _.template(@template, @model.attributes)
+    @$el.on 'click', =>
+      @model.trigger "select"

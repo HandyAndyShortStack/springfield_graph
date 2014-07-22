@@ -4,8 +4,13 @@ class SM.Character extends Backbone.Model
     @connections = new SM.ConnectionsCollection
     @connections.url = "#{@url()}/connections"
     @connections.fetch() 
-    @view = new SM.CharacterView(model: this)
+    @hiveView = new SM.CharacterHiveView(model: this)
     @listView = new SM.CharacterListView(model: this)
+    @topView = new SM.CharacterTopView(model: this)
+
+    @listenTo this, 'select', =>
+      @topView.show()
+      @hiveView.render()
 
   graphData: ->
     zeroDegreeCharacters = new SM.CharactersCollection(this)

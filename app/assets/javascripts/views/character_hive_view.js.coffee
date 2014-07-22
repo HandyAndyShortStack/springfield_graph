@@ -1,4 +1,4 @@
-class SM.CharacterView extends Backbone.View
+class SM.CharacterHiveView extends Backbone.View
 
   render: ->
     graphData = @model.graphData()
@@ -111,6 +111,3 @@ class SM.CharacterView extends Backbone.View
             nodeCenter(axis.angle, index).y - (nodeSide / 2)
           .attr 'width', nodeSide
           .attr 'height', nodeSide
-
-window.render = (number) ->
-  app.characters.get(number).view.render()
