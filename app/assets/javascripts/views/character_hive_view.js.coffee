@@ -97,6 +97,8 @@ class SM.CharacterHiveView extends Backbone.View
       for i in [1, 2]
         connections.append 'path'
             .classed "connection-#{i}", true
+            .attr 'data-connection-id', (data) ->
+              data.id
             .attr 'stroke', (data) ->
               colorScale axis.characters.indexOf(data.source())
             .attr 'stroke-width', '2'
@@ -110,17 +112,16 @@ class SM.CharacterHiveView extends Backbone.View
               "A 1 1 " +
               "0 0 1 " +
               "#{target.x} #{target.y}"
-            .on 'mouseover', (data) ->
-              data.trigger 'quickView'
-            .on 'mouseout', (data) ->
-              app.trigger 'clearQuickView'
       d3.selectAll '.connection-2'
           .attr 'stroke', 'black'
           .attr 'stroke-width', 4.5
           .attr 'stroke-opacity', 0
           .on 'mouseover', ->
             d3.select(this).attr 'stroke-opacity', 1
+            connectionId = d3.select(this).attr('data-connection-id')
+            app.trigger 'connectionQuickView', connectionId
           .on 'mouseout', ->
+            app.trigger 'clearQuickView'
             d3.select(this).attr 'stroke-opacity', 0
 
       # draw nodes
@@ -138,6 +139,7 @@ class SM.CharacterHiveView extends Backbone.View
             d3.select(this).select('.node-border').attr 'fill', 'none'
           .on 'click', (data) ->
             data.trigger 'select'
+            app.trigger 'clearQuickView'
       nodes.append 'circle'
           .classed 'node-border', true
           .attr 'cx', (data, index) ->

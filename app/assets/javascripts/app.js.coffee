@@ -6,3 +6,4 @@ class SM.App
       success: =>
         for character in @characters.models
           character.listView.$el.appendTo $('#character-list')
+        @characters.first().trigger 'select'
