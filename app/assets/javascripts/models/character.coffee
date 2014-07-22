@@ -37,4 +37,5 @@ class SM.Character extends Backbone.Model
       zeroDegreeConnections: zeroDegreeCharacters.connections().targeting(firstDegreeCharacters)
       firstDegreeConnections: firstDegreeCharacters.connections().targeting(secondDegreeCharacters)
       secondDegreeConnections: secondDegreeCharacters.connections().targeting(thirdDegreeCharacters)
+      thirdDegreeConnections: new SM.ConnectionsCollection
     }

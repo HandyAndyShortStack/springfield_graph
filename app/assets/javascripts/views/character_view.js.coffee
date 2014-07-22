@@ -21,6 +21,7 @@ class SM.CharacterView extends Backbone.View
       {
         angle: 315
         characters: graphData.thirdDegreeCharacters
+        connections: graphData.thirdDegreeConnections
       }
     ]
 
@@ -42,6 +43,12 @@ class SM.CharacterView extends Backbone.View
 
     degreesToRadians = (degrees) ->
       degrees * (Math.PI / 180)
+
+    nodeCenter = (angle, index) ->
+      polar(angle, nodeRadius(index))
+
+    nodeRadius = (index) ->
+      innerRadius + (nodeSpacing * (index + 0.5))
 
     $('svg').remove()
     svg = d3.select 'body'
@@ -68,7 +75,28 @@ class SM.CharacterView extends Backbone.View
         .attr 'stroke-width', '3'
 
     for axis, index in axesData
-      
+      nextAxis = axesData[index + 1]
+           
+      # draw connections
+      conections = svg.selectAll ".axis-#{index}-connections"
+          .data axis.connections.models
+          .enter()
+        .append 'path'
+          .attr 'stroke', 'black'
+          .attr 'stroke-width', '2'
+          .attr 'fill', 'none'
+          .attr 'd', (data) ->
+            sourceIndex = axis.characters.indexOf(data.source())
+            targetIndex = nextAxis.characters.indexOf(data.target())
+            source = nodeCenter(axis.angle, sourceIndex)
+            target = nodeCenter(nextAxis.angle, targetIndex)
+            rx = source.x - target.x
+            ry = source.y - target.y
+            "M #{source.x} #{source.y} " +
+            "A #{rx} #{ry} " +
+            "#{axis.angle} 0 1 " +
+            "#{target.x} #{target.y}"
+
       # draw nodes
       nodes = svg.selectAll ".axis-#{index}-nodes"
           .data axis.characters.models
@@ -77,8 +105,8 @@ class SM.CharacterView extends Backbone.View
           .attr 'xlink:href', (data) ->
             data.get 'image_url'
           .attr 'x', (data, index) ->
-            polar(axis.angle, innerRadius + (nodeSpacing * (index + 0.5))).x - (nodeSide / 2)
+            nodeCenter(axis.angle, index).x - (nodeSide / 2)
           .attr 'y', (data, index) ->
-            polar(axis.angle, innerRadius + (nodeSpacing * (index + 0.5))).y - (nodeSide / 2)
+            nodeCenter(axis.angle, index).y - (nodeSide / 2)
           .attr 'width', nodeSide
           .attr 'height', nodeSide
