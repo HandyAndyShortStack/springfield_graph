@@ -5,12 +5,8 @@
 
     <div class="col-md-3 sidebar">
       <h2 class="sub-header">Characters</h2>
-      <ul id="character-list">
-        <li>foo</li>
-        <li>bar</li>
-        <li>baz</li>
-        <li>quux</li>
-      </ul>
+      <div class="row" id="character-list">
+      </div>
     </div>
 
     <div class="col-md-9">
@@ -56,3 +52,14 @@
     </div>
   </div>
 </div>
+
+<script id="character-list-view" type="text/template">
+  <div class="row">
+    <div class="col-md-3">
+      <img src="{{= image_url }}" />
+    </div>
+    <div class="col-md-9">
+      <p>{{= name }}<p>
+    </div>
+  </div>
+</script>

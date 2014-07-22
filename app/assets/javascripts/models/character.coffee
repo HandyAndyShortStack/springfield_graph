@@ -5,6 +5,7 @@ class SM.Character extends Backbone.Model
     @connections.url = "#{@url()}/connections"
     @connections.fetch() 
     @view = new SM.CharacterView(model: this)
+    @listView = new SM.CharacterListView(model: this)
 
   graphData: ->
     zeroDegreeCharacters = new SM.CharactersCollection(this)
