@@ -27,7 +27,7 @@ class SM.CharacterHiveView extends Backbone.View
     ]
 
 
-    h = 600
+    h = 750
     w = h
     center =
       x: w / 2
@@ -51,6 +51,8 @@ class SM.CharacterHiveView extends Backbone.View
 
     nodeRadius = (index) ->
       innerRadius + (nodeSpacing * (index + 0.5))
+
+    colorScale = d3.scale.category10()
 
     $('svg').remove()
     svg = d3.select '#hive'
@@ -84,7 +86,8 @@ class SM.CharacterHiveView extends Backbone.View
           .data axis.connections.models
           .enter()
         .append 'path'
-          .attr 'stroke', 'black'
+          .attr 'stroke', (data) ->
+            colorScale axis.characters.indexOf(data.source())
           .attr 'stroke-width', '2'
           .attr 'fill', 'none'
           .attr 'd', (data) ->
@@ -103,7 +106,25 @@ class SM.CharacterHiveView extends Backbone.View
       nodes = svg.selectAll ".axis-#{index}-nodes"
           .data axis.characters.models
           .enter()
-        .append 'image'
+        .append 'g'
+          .on 'mouseover', (data) ->
+            data.trigger 'quickView'
+            d3.select(this).select('.node-border').attr 'fill', 'orange'
+          .on 'mouseout', ->
+            app.trigger 'clearQuickView'
+            d3.select(this).select('.node-border').attr 'fill', 'none'
+          .on 'click', (data) ->
+            data.trigger 'select'
+      nodes.append 'circle'
+          .classed 'node-border', true
+          .attr 'cx', (data, index) ->
+            nodeCenter(axis.angle, index).x
+          .attr 'cy', (data, index) ->
+            nodeCenter(axis.angle, index).y
+          .attr 'r', nodeSide / 2 + 3
+          .attr 'fill', 'none'
+      nodes.append 'image'
+          .classed 'node', true
           .attr 'xlink:href', (data) ->
             data.get 'image_url'
           .attr 'x', (data, index) ->
