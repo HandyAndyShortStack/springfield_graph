@@ -26,7 +26,7 @@ class SM.CharacterView extends Backbone.View
     ]
 
 
-    h = 500
+    h = 600
     w = h
     center =
       x: w / 2
@@ -52,7 +52,7 @@ class SM.CharacterView extends Backbone.View
       innerRadius + (nodeSpacing * (index + 0.5))
 
     $('svg').remove()
-    svg = d3.select 'body'
+    svg = d3.select '#hive'
         .append 'svg'
         .attr 'height', h * 0.7
         .attr 'width', w * 0.8
