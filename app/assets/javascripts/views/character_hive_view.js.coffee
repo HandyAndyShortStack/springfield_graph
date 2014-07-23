@@ -130,6 +130,7 @@ class SM.CharacterHiveView extends Backbone.View
           .data axis.characters.models
           .enter()
         .append 'g'
+          .classed 'node', true
           .attr 'data-axisName', axis.name
           .on 'mouseover', (data) ->
             axisName = d3.select(this).attr 'data-axisName'

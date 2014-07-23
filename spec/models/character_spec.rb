@@ -42,7 +42,7 @@ describe Character do
 
   describe "#image_url" do
     it "returns a valid properly formed image url" do
-      expect(character.image_url).to eq("sample_name.png")
+      expect(character.image_url).to include("sample_name.png")
     end
   end
 end

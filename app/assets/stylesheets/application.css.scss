@@ -12,6 +12,15 @@
   position: absolute;
 }
 
-.node-selected {
-  background-color: red;
+.node {
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.character-list {
+  &:hover {
+    cursor: pointer;
+    color: skyblue;
+  }
 }
