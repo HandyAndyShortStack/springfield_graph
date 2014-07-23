@@ -2,10 +2,6 @@ class SM.Character extends Backbone.Model
 
   initialize: ->
     @connections = new SM.ConnectionsCollection
-    @connections.url = "#{@url()}/connections"
-    @connections.fetch
-      success: =>
-        app.trigger 'connectionsLoaded'
     @hiveView = new SM.CharacterHiveView(model: this)
     @listView = new SM.CharacterListView(model: this)
     @topView = new SM.CharacterTopView(model: this)

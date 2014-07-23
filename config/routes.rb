@@ -4,9 +4,8 @@ Rails.application.routes.draw do
   scope "api" do
 
     scope "v1" do
-      resources :characters do
-        resources :connections
-      end
+      resources :characters
+      resources :connections
     end
   end
 end

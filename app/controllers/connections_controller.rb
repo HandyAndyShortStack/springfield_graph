@@ -1,6 +1,5 @@
 class ConnectionsController < ApplicationController
   def index
-    @character = Character.find(params[:character_id])
-    render json: @character.connections
+    render json: Connection.all
   end
 end

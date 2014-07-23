@@ -2,7 +2,7 @@ class SM.CharacterTopView extends Backbone.View
 
   initialize: ->
     @template = $('#character-top-view').html()
-    @listenTo app, 'connectionsLoaded', =>
+    @listenTo @model, 'connectionsLoaded', =>
       @render()
     @listenTo @model, 'select', =>
       @show()

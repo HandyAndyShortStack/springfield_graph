@@ -1,5 +1,6 @@
 class SM.ConnectionsCollection extends Backbone.Collection
   model: SM.Connection
+  url: '/api/v1/connections'
 
   targets: ->
     model.target() for model in @models
